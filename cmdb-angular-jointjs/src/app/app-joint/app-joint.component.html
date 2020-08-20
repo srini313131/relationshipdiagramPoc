@@ -1,0 +1,28 @@
+<div #wrapper><div #graph></div></div>
+
+<p-sidebar [(visible)]="display" styleClass="p-sidebar-sm" position="right" (onHide)="cancel()">
+
+    <h1>Add Relationship </h1>
+    
+       <form [formGroup]="relationshipForm">
+        <h3 class="first">Selected Ci:</h3>
+        <input  type="text" size="30" pInputText formControlName="sourceCi"> 
+        
+        
+        <h3>Relationship Type</h3>
+        <span class="ui-float-label">
+            <input id="float-input" type="text" size="30" pInputText formControlName="relationshipType"> 
+        </span>
+        
+        <h3>Destination Ci</h3>
+        <input id="disabled-input" type="text" size="30" pInputText formControlName="destinationCi" />
+        
+       </form>
+
+        <button pButton type="button" (click)="save()" label="Save" class="ui-button-success"></button>
+    <button pButton type="button" (click)="cancel()" label="Cancel" class="ui-button-secondary"></button>
+    
+        
+{{relationshipForm.value | json}}
+    
+</p-sidebar>
